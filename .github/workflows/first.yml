@@ -1,0 +1,7 @@
+name: first_workflows
+on: push
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    - name: greet
+      run: echo "heelo"
