@@ -1,7 +1,12 @@
-name: first_workflows
-on: push
+name: Hello World
+
+on:
+  push:
+    branches: [main]
+
 jobs:
   greet:
     runs-on: ubuntu-latest
-    - name: greet
-      run: echo "heelo"
+    steps:
+      - name: Greet
+        run: echo "Hello, World!"
