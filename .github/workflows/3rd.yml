@@ -1,0 +1,26 @@
+name: Resource Group Creation - Siesta
+on:
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
+jobs:     
+  resourcegroups:
+    runs-on: ubuntu-latest    
+    name: 'Resource Group'
+    env:
+      ARM_CLIENT-ID: ${{ secrets.AZURE_CLIENT_ID }}
+      ARM_CLIENT-SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
+      ARM_TENANT-ID: ${{ secrets.AZURE_TENANT_ID }}
+      ARM_SUBSCRIPTION-ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    
+    steps:  
+      # Checks out the repository this file is in
+      - uses: actions/checkout@v3
+      - name: 'Azure login'
+        uses: azure/login@v1.4.6
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+     
