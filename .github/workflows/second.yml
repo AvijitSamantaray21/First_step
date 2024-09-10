@@ -2,21 +2,18 @@ name: Azure Login and Resource Access
 
 on:
   workflow_dispatch:
- 
 
 jobs:
   azure-login-and-resource-access:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  
-     
+        uses: actions/checkout@v3
+
       - name: Azure CLI Version
         run: |
-          az version 
-     
+          az version
+
       - name: Login to Azure using service principal
         run: |
-          az login --service-principal --username ${{ secrets.AZURE_CLIENT_ID }} --password ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }} subscription -- {{secrets.AZURE_SUB_ID}}        
-
-      
+          az login --service-principal --username ${{ secrets.AZURE_CLIENT_ID }} --password ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }} --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}}
