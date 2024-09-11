@@ -1,4 +1,4 @@
-name: Azure Login and Resource Access
+name: Azure Login with AZ login command
 
 on:
   workflow_dispatch:
