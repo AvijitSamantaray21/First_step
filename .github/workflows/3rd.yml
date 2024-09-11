@@ -7,12 +7,7 @@ permissions:
 jobs:     
   resourcegroups:
     runs-on: ubuntu-latest
-    name: 'Azure login'
-    env:
-      environment: production
     steps:  
-      # Checks out the repository this file is in
-      - uses: actions/checkout@v3
       - name: 'Azure login'
         uses: azure/login@v1.4.6
         with:
