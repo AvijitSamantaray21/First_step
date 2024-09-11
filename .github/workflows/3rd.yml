@@ -6,7 +6,9 @@ permissions:
   contents: read
 jobs:     
   resourcegroups:
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
+    env:
+      environment: production
     name: 'Azure login'
     steps:  
       # Checks out the repository this file is in
