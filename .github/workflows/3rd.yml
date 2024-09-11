@@ -1,4 +1,4 @@
-name: siesta-az-foundation-services
+name: Azure openID connect 
 on:
   workflow_dispatch:
 permissions:
@@ -20,7 +20,5 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
         
-      - name: 'Run az commands'
-        run: |
-          az account show
+      
      
