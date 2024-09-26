@@ -20,7 +20,7 @@ permissions:
   
 jobs:     
   create-backend-infra-dev:
-    if:  $ {{(github.event.inputs.env == 'dev')   (vars.CREATE_BACKEND_INFRA == 'true') }}
+    if:  $ {{(github.event.inputs.env == 'dev') &&  (vars.CREATE_BACKEND_INFRA == 'true') }}
     runs-on: ubuntu-latest
     name: Create Backend Infra - Dev
     steps:
