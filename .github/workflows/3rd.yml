@@ -1,26 +1,23 @@
-#------------------------------------------------------
-# Deploy Backend Infra in dev/preprod/prod (as selected)
-#------------------------------------------------------
 name: Deploy Backend Infra
 
 on:
   workflow_dispatch:
-    inputs:     
+    inputs:
       env:
         type: choice
         description: Backend Infra for?
-        options: 
-        - dev
-        - test
-        - prod
-  
+        options:
+          - dev
+          - test
+          - prod
+
 permissions:
   id-token: write
   contents: read
-  
-jobs:     
+
+jobs:
   create-backend-infra-dev:
-    if:  $ {{(github.event.inputs.env == 'dev') &&  (vars.CREATE_BACKEND_INFRA == 'true') }}
+    if: ${{ (github.event.inputs.env == 'dev') && (vars.CREATE_BACKEND_INFRA == 'true') }}
     runs-on: ubuntu-latest
     name: Create Backend Infra - Dev
     steps:
