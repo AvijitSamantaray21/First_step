@@ -1,22 +1,27 @@
-name: Azure openID connect 
+#------------------------------------------------------
+# Deploy Backend Infra in dev/preprod/prod (as selected)
+#------------------------------------------------------
+name: Deploy Backend Infra
+
 on:
   workflow_dispatch:
+    inputs:     
+      env:
+        type: choice
+        description: Backend Infra for?
+        options: 
+        - dev
+        - test
+        - prod
+  
 permissions:
   id-token: write
   contents: read
+  
 jobs:     
-  resourcegroups:
+  create-backend-infra-dev:
+    if:  ${{(vars.CREATE_BACKEND_INFRA == 'true') }}
     runs-on: ubuntu-latest
-    steps:  
-      - name: 'Azure login'
-        uses: azure/login@v1.4.6
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUB_ID }}
-      - name: 'Run az commands'
-        run: |
-          az account show
-        
-      
-     
+    name: Create Backend Infra - Dev
+    steps:
+      - uses: actions/checkout@v3
