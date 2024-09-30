@@ -37,9 +37,9 @@ jobs:
 
       - name: Terraform replace values3
         env:
-           client_Secret: ${{ vars.azure_client_Secret }}
+           client_secret: ${{ vars.azure_client_secret }}
         run:
-             sed -i """s/"client_Secret_value"/"$client_Secret"/g""" backend.tf
+             sed -i """s/"client_secret_value"/"$client_secret"/g""" backend.tf
 
 
       - name: Terraform replace values4
