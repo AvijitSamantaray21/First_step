@@ -26,7 +26,7 @@ jobs:
         run :  export names="new_value"
              
       - name: run command
-        run :   sed -i "s/hihi/$names/g" New.txt > output.txt
+        run : sed -i 's/hihi/avijit/g/' New.txt
               
             
       
@@ -49,7 +49,7 @@ jobs:
              sed -i 's/"subsription_id_value"/$subsription_id/g' backend.tf
       - name: Terraform show
         run: 
-             cat output.txt
+             cat New.txt
         
         
         
