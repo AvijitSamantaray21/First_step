@@ -24,7 +24,7 @@ jobs:
           client_Secret: ${{ secrets.azure_client_Secret }}
       
         
-      - name: Terraform Init
+      - name: Terraform replace values
        
         run: 
             sed -i 's/client_id_value /$client_id/g' backend.tf
