@@ -24,7 +24,9 @@ jobs:
           client_Secret: ${{ vars.azure_client_Secret }}
           name: ${{ vars.create_backend_infra}}
         run :  export name="new_value"
-              sed 's/hihi/"$name"/g' New.txt
+             
+      - name: set env files
+        run :   sed 's/hihi/"$name"/g' New.txt
               
             
       
