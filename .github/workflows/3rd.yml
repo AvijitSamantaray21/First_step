@@ -23,10 +23,10 @@ jobs:
           tenant_id: ${{ vars.azure_tenant_id }}
           client_Secret: ${{ vars.azure_client_Secret }}
           name: ${{ vars.create_backend_infra}}
-        run :  export name="new_value"
+        run :  export names="new_value"
              
       - name: set env files
-        run :   sed 's/hihi/"$name"/g' New.txt
+        run :   sed "s/hihi/$names/g" New.txt
               
             
       
