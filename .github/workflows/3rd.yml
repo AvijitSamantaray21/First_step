@@ -23,7 +23,7 @@ jobs:
           tenant_id: ${{ vars.azure_tenant_id }}
           client_Secret: ${{ vars.azure_client_Secret }}
           name: ${{ vars.create_backend_infra}}
-        run : echo "$client_id"
+        run : cat backend.tf
       
         
       - name: Terraform replace values
@@ -42,16 +42,20 @@ jobs:
       - name: Terraform replace values4
         run: 
              sed -i 's/subsription_id_value /$subsription_id/g' backend.tf
+      - name: Terraform show
+        run: 
+             cat backend.tf
+        
         
         
 
 
 
-      - name: Terraform init
-        run:
-          terraform init
+      # - name: Terraform init
+      #   run:
+      #     terraform init
         
-      - name: Terraform Apply
-        run:
+      # - name: Terraform Apply
+      #   run:
       
-          terraform apply -auto-approve
+      #     terraform apply -auto-approve
