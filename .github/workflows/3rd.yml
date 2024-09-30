@@ -15,6 +15,8 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
+      - name: show files
+        run: ls
       - name: Terraform Init
         run:
             
