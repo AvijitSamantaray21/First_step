@@ -10,4 +10,4 @@ sed -e "s/\${client_id}/$client_id/" \
 # Initialize Terraform
 terraform init
 
-terraform apply -auto-approve
+
