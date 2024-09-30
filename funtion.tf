@@ -18,7 +18,7 @@
 #   location = "Centralindia"
 # }
 resource "github_repository" "example" {
-  name        = "exampledsdsdsdsdsdsdsdsd"
+  name        = "exampledsdsdsdsdsdsdsdsddsdsdsdsdsdsd"
   description = "My awesome codebase"
 
   visibility = "public"
