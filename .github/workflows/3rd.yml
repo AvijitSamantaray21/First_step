@@ -16,44 +16,40 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: set env files
-        env:
-          TF_VAR_github_token: ${{ secrets.ga_token }}
-          client_id: ${{ vars.azure_client_id }}
-          subsription_id: ${{ vars.azure_sub_id }}
-          tenant_id: ${{ vars.azure_tenant_id }}
-          client_Secret: ${{ vars.azure_client_Secret }}
-          name: ${{ vars.create_backend_infra}}
-        run :  echo "$client_id"
+        run :  echo "hello"
              
-      - name: run command
-        env:
-           client_id: ${{ vars.azure_client_id }}
-        run : sed -i """s/avijit/"$client_id"/g""" New.txt
+     
       
             
               
-            
-      
         
       - name: Terraform replace values
-        run: sed -i 's/"client_id_value"/$client_id/g' backend.tf
+        env:
+           client_id: ${{ vars.azure_client_id }}
+        run: sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
            
       - name: Terraform replace valuess
+        env:
+           tenant_id: ${{ vars.azure_tenant_id }}
         run: 
-             sed -i 's/"tenant_id_value"/$tenant_id_id/g' backend.tf
+             sed -i """s/"tenant_id_value"/"$tenant_id_id"/g""" backend.tf
            
 
       - name: Terraform replace values3
+        env:
+           client_Secret: ${{ vars.azure_client_Secret }}
         run:
-             sed  's/"client_Secret_value"/$client_Secret/g' backend.tf
+             sed  """s/"client_Secret_value"/"$client_Secret"/g""" backend.tf
 
 
       - name: Terraform replace values4
+        env:
+          subsription_id: ${{ vars.azure_sub_id }}
         run: 
-             sed -i 's/"subsription_id_value"/$subsription_id/g' backend.tf
+             sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
       - name: Terraform show
         run: 
-             cat New.txt
+             cat backend.tf
         
         
         
