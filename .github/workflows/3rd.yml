@@ -18,12 +18,12 @@ jobs:
       - name: set env files
         env:
           TF_VAR_github_token: ${{ secrets.ga_token }}
-          client_id: ${{ secrets.azure_client_id }}
-          subsription_id: ${{ secrets.azure_sub_id }}
-          tenant_id: ${{ secrets.azure_tenant_id }}
-          client_Secret: ${{ secrets.azure_client_Secret }}
+          client_id: ${{ vars.azure_client_id }}
+          subsription_id: ${{ vars.azure_sub_id }}
+          tenant_id: ${{ vars.azure_tenant_id }}
+          client_Secret: ${{ vars.azure_client_Secret }}
           name: ${{ vars.create_backend_infra}}
-        run : echo "$name"
+        run : echo "$client_id"
       
         
       - name: Terraform replace values
