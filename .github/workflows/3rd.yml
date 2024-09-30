@@ -64,10 +64,10 @@ jobs:
         env:
           TF_VAR_github_token: ${{ secrets.ga_token}}
         run:
-          terraform apply
+          terraform apply -auto-approve
       - name: terraform destroy
         env:
           TF_VAR_github_token: ${{ secrets.ga_token}}
         run:
-          terraform destroy
+          terraform destroy -auto-approve
       
