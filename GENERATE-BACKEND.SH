@@ -4,7 +4,7 @@
 sed -e "s/\${client_id}/$client_id/" \
     -e "s/\${subsription_id}/$subsription_id/" \
     -e "s/\${client_secret}/$client_secret/" \
-    -e "s/\${tennant_id}/$tennant_id/" \
+    -e "s/\${tenant_id}/$tenant_id/" \
     backend.tf.template > backend.tf
 
 # Initialize Terraform
