@@ -34,11 +34,7 @@ jobs:
 
 
 
-      # - name: Terraform Apply
-       
-      #   env:
-      #     TF_VAR_github_token: ${{ secrets.ga_token }}
-         
-      #   run:
-      #     terraform init
-      #     terraform apply -auto-approve
+      - name: Terraform Apply
+        run:
+          terraform init
+          terraform apply -auto-approve
