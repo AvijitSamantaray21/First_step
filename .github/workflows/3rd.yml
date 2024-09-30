@@ -25,18 +25,16 @@ jobs:
       
         
       - name: Terraform replace values
-       
-        run: 
-            sed -i 's/client_id_value /$client_id/g' backend.tf
+        run: sed -i 's/client_id_value /$client_id/g' backend.tf
         
 
 
 
-      - name: Terraform Apply
+      # - name: Terraform Apply
        
-        env:
-          TF_VAR_github_token: ${{ secrets.ga_token }}
+      #   env:
+      #     TF_VAR_github_token: ${{ secrets.ga_token }}
          
-        run:
-          terraform init
-          terraform apply -auto-approve
+      #   run:
+      #     terraform init
+      #     terraform apply -auto-approve
