@@ -49,7 +49,7 @@ jobs:
              sed -i 's/"subsription_id_value"/$subsription_id/g' backend.tf
       - name: Terraform show
         run: 
-             cat output.txt
+             ls
         
         
         
