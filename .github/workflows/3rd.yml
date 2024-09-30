@@ -1,24 +1,25 @@
-name: Deploy Backend Infra
+name: Terraform
 
 on:
-  workflow_dispatch:
-    inputs:
-      env:
-        type: choice
-        description: Backend Infra for?
-        options:
-          - dev
-          - test
-          - prod
-
-permissions:
-  id-token: write
-  contents: read
+  push:
+    branches:
+      - main
 
 jobs:
-  create-backend-infra-dev:
-    if: ${{ (github.event.inputs.env == 'dev') && (vars.CREATE_BACKEND_INFRA == 'true') }}
+  terraform:
     runs-on: ubuntu-latest
-    name: Create Backend Infra - Dev
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Apply
+        env:
+          TF_VAR_github_token: ${{ secrets.ga_token }}
+        run: terraform apply -auto-approve
