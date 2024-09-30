@@ -22,6 +22,7 @@ jobs:
           subsription_id: ${{ secrets.azure_sub_id }}
           tenant_id: ${{ secrets.azure_tenant_id }}
           client_Secret: ${{ secrets.azure_client_Secret }}
+        run : ls
       
         
       - name: Terraform replace values
