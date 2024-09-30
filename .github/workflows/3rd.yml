@@ -24,7 +24,7 @@ jobs:
           client_Secret: ${{ secrets.azure_client_Secret }}
       
         run: ls
-            echo "$client_id"
+            echo "avijit"
       - name: Terraform Init
        
         run:
