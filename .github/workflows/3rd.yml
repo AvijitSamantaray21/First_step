@@ -15,7 +15,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
-      - name: show files
+      - name: set env files
         env:
           TF_VAR_github_token: ${{ secrets.ga_token }}
           client_id: ${{ secrets.azure_client_id }}
@@ -23,16 +23,12 @@ jobs:
           tenant_id: ${{ secrets.azure_tenant_id }}
           client_Secret: ${{ secrets.azure_client_Secret }}
       
-        run: echo "$(client_id)"
+        
       - name: Terraform Init
        
-        run:
-            
-          sed -i \
-          "s/client_id = \"\${client_id}\"/client_id = \"${client_id}\"/g" \
-          "s/subscription_id = \"\${subsription_id}\"/subscription_id = \"${subscription_id}\"/g" \
-          "s/tenant_id = \"\${tenant_id}\"/tenant_id = \"${tenant_id}\"/g" \
-          backend.tf.template > backend.tf
+        run: 
+            sed -i 's/client_id_value /$client_id/g' backend.tf
+        
 
 
 
