@@ -26,9 +26,10 @@ jobs:
         run :  echo "$client_id"
              
       - name: run command
+        env:
+           client_id: ${{ vars.azure_client_id }}
         run : sed -i """s/avijit/"$client_id"/g""" New.txt
-      - name: run commands
-        run : echo "$client_id"
+      
             
               
             
