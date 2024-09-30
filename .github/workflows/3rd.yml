@@ -23,8 +23,7 @@ jobs:
           tenant_id: ${{ secrets.azure_tenant_id }}
           client_Secret: ${{ secrets.azure_client_Secret }}
       
-        run: ls
-            echo "avijit"
+        run: echo "Hello from GitHub Actions!"
       - name: Terraform Init
        
         run:
