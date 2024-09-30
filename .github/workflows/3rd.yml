@@ -27,21 +27,21 @@ jobs:
       
         
       - name: Terraform replace values
-        run: sed -i 's/client_id_value /$client_id/g' backend.tf
+        run: sed -i 's/"client_id_value"/$client_id/g' backend.tf
            
       - name: Terraform replace valuess
         run: 
-             sed -i 's/tenant_id_value /$tenant_id_id/g' backend.tf
+             sed -i 's/"tenant_id_value"/$tenant_id_id/g' backend.tf
            
 
       - name: Terraform replace values3
         run:
-             sed -i 's/client_Secret_value /$client_Secret/g' backend.tf
+             sed  's/"client_Secret_value"/$client_Secret/g' backend.tf
 
 
       - name: Terraform replace values4
         run: 
-             sed -i 's/subsription_id_value/"$subsription_id"/g' backend.tf
+             sed -i 's/"subsription_id_value"/$subsription_id/g' backend.tf
       - name: Terraform show
         run: 
              cat backend.tf
