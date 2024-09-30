@@ -59,4 +59,10 @@ jobs:
       - name: Terraform init
         run:
           terraform init
+
+      - name: terraform apply
+        env:
+          TF_VAR_GITHUB_TOKEN: ${{ secrets.ga_token}}
+        run:
+          terraform apply
       
