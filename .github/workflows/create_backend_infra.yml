@@ -24,6 +24,7 @@ jobs:
       - name: Pipelines Terraform initialize
        
         run: |
+            cd ./create_backend
             terraform init
             terraform plan
             terraform apply -auto-approve
