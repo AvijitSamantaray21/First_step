@@ -41,7 +41,7 @@ jobs:
 
       - name: Terraform replace values4
         run: 
-             sed -i 's/subsription_id_value /$subsription_id/g' backend.tf
+             sed -i 's/subsription_id_value/"$subsription_id"/g' backend.tf
       - name: Terraform show
         run: 
              cat backend.tf
