@@ -19,6 +19,7 @@ jobs:
       - name: cmd
         run: |
             cd ./personal_testing
-            terraform init
+            terraform init -backend-config=backend.tfvars
+
           
           
