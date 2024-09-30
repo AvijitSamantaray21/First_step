@@ -16,6 +16,9 @@ jobs:
         run: |
           az login --service-principal --username ${{ secrets.AZURE_CLIENT_ID }} --password ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}          
 
-      - name: List resources in a resource group
+      - name: cmd
         run: |
-          az account show
+            cd ./personal_testing
+            terraform init
+          
+          
