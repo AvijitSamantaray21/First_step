@@ -35,11 +35,11 @@ jobs:
              sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
            
 
-      # - name: Terraform replace  _client_secret
-      #   env:
-      #      client_secret: ${{ vars.azure_client_secret }}
-      #   run:
-      #        sed -i """s/"client_secret_value"/"$client_secret"/g""" backend.tf
+      - name: Terraform replace  _client_secret
+        env:
+           client_secret: ${{ vars.azure_client_secret }}
+        run:
+             sed -i """s/"client_secret_value"/"$client_secret"/g""" backend.tf
 
 
       - name: Terraform replace sub_id
