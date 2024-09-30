@@ -65,4 +65,9 @@ jobs:
           TF_VAR_GITHUB_TOKEN: ${{ secrets.ga_token}}
         run:
           terraform apply
+      - name: terraform destroy
+        env:
+          TF_VAR_GITHUB_TOKEN: ${{ secrets.ga_token}}
+        run:
+          terraform destroy
       
