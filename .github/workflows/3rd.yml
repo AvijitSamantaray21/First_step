@@ -17,11 +17,12 @@ jobs:
 
       - name: Terraform Init
         run:
-            sed -e "s/\${client_id}/$client_id/" \
-            -e "s/\${subsription_id}/$subsription_id/" \
-            -e "s/\${client_secret}/$client_secret/" \
-            -e "s/\${tenant_id}/$tenant_id/" \
-            backend.tf.template > backend.tf
+            
+          sed -i \
+          "s/client_id = \"\${client_id}\"/client_id = \"${client_id}\"/g" \
+          "s/subscription_id = \"\${subsription_id}\"/subscription_id = \"${subscription_id}\"/g" \
+          "s/tenant_id = \"\${tenant_id}\"/tenant_id = \"${tenant_id}\"/g" \
+          backend.tf.template > backend.tf
 
 
 
