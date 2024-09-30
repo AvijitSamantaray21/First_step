@@ -18,6 +18,12 @@ jobs:
       - name: show files
         run: ls
       - name: Terraform Init
+        env:
+          TF_VAR_github_token: ${{ secrets.ga_token }}
+          client_id: ${{ secrets.azure_client_id }}
+          subsription_id: ${{ secrets.azure_sub_id }}
+          tenant_id: ${{ secrets.azure_tenant_id }}
+          client_Secret: ${{ secrets.azure_client_Secret }}
         run:
             
           sed -i \
@@ -32,10 +38,7 @@ jobs:
        
         env:
           TF_VAR_github_token: ${{ secrets.ga_token }}
-          client_id: ${{ secrets.azure_client_id }}
-          subsription_id: ${{ secrets.azure_sub_id }}
-          tenant_id: ${{ secrets.azure_tenant_id }}
-          client_Secret: ${{ secrets.azure_client_Secret }}
+         
         run:
           terraform init
           terraform apply -auto-approve
