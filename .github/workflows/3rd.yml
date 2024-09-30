@@ -26,7 +26,7 @@ jobs:
         run :  export names="new_value"
              
       - name: run command
-        run : sed -i "s/avijit/$name/g" New.txt
+        run : sed -i "s/avijit/'$names'/g" New.txt
               
             
       
