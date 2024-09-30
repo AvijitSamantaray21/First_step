@@ -1,6 +1,6 @@
 # Deploy Core Infra in dev
 #------------------------------------------
-name: Deploy Core Infra
+name: Deploy backend_infra
 on:
   workflow_dispatch:
   
