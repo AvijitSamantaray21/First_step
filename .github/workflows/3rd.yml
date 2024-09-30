@@ -23,7 +23,7 @@ jobs:
           tenant_id: ${{ secrets.azure_tenant_id }}
           client_Secret: ${{ secrets.azure_client_Secret }}
       
-        run: echo "$client_id"
+        run: echo "$(client_id)"
       - name: Terraform Init
        
         run:
