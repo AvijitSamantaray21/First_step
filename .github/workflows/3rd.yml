@@ -16,8 +16,12 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: chmod +x generate-backend.sh
-             ./generate-backend.sh
+        run:
+            sed -e "s/\${client_id}/$client_id/" \
+            -e "s/\${subsription_id}/$subsription_id/" \
+            -e "s/\${client_secret}/$client_secret/" \
+            -e "s/\${tenant_id}/$tenant_id/" \
+            backend.tf.template > backend.tf
 
 
 
@@ -29,4 +33,6 @@ jobs:
           subsription_id: ${{ secrets.azure_sub_id }}
           tenant_id: ${{ secrets.azure_tenant_id }}
           client_Secret: ${{ secrets.azure_client_Secret }}
-        run: terraform apply -auto-approve
+        run:
+          terraform init
+          terraform apply -auto-approve
