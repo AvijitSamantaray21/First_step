@@ -16,14 +16,10 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        env:
-          TF_VAR_github_token: ${{ secrets.ga_token }}
-          client_id: ${{ secrets.azure_client_id }}
-          subsription_id: ${{ secrets.azure_sub_id }}
-          tenant_id: ${{ secrets.azure_tenant_id }}
-          client_Secret: ${{ secrets.azure_client_Secret }}
-       
-        run: terraform init
+        run: chmod +x generate-backend.sh
+             ./generate-backend.sh
+
+
 
       - name: Terraform Apply
        
