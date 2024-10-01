@@ -21,10 +21,10 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
      
     
-      # - name: cmd
-      #   run: |
-      #       cd ./personal_testing
-      #       terraform init
+      - name: cmd
+        run: |
+            cd ./personal_testing
+            terraform init
 
           
           
