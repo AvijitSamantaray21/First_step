@@ -17,51 +17,34 @@ jobs:
 
              
         
-      - name: Terraform replace client_id
+      - name: Terraform replace  azure creds
         env:
            client_id: ${{ vars.azure_client_id }}
-        run: sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
-           
-      - name: Terraform replace tenant_id
-        env:
            tenant_id: ${{ vars.azure_tenant_id }}
-        run: 
-             sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
-           
-
-      - name: Terraform replace  _client_secret
-        env:
            client_secret: ${{ vars.azure_client_secret }}
-        run:
-             sed -i """s/"client_secret_value"/"$client_secret"/g""" backend.tf
-
-
-      - name: Terraform replace sub_id
-        env:
-          subsription_id: ${{ vars.azure_sub_id }}
-        run: 
-             sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
+           subsription_id: ${{ vars.azure_sub_id }}
+        run: | 
+          sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
+          sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
+          sed -i """s/"client_secret_value"/"$client_secret"/g""" backend.tf
+           sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
+           
+     
+            
       - name: Terraform show
         run: 
              cat backend.tf
         
         
-        
-
-
-
       - name: Terraform init
         run:
           terraform init
 
       - name: terraform apply
-        env:
+        env: 
           TF_VAR_github_token: ${{ secrets.ga_token}}
-        run:
+        run: |
           terraform apply -auto-approve
-      - name: terraform destroy
-        env:
-          TF_VAR_github_token: ${{ secrets.ga_token}}
-        run:
           terraform destroy -auto-approve
+     
       
