@@ -19,10 +19,10 @@ jobs:
         
       - name: Terraform replace  azure creds
         env:
-           client_id: ${{ vars.azure_client_id }}
-           tenant_id: ${{ vars.azure_tenant_id }}
-           client_secret: ${{ vars.azure_client_secret }}
-           subsription_id: ${{ vars.azure_sub_id }}
+           client_id: ${{ secrets.azure_client_id }}
+           tenant_id: ${{ secrets.azure_tenant_id }}
+           client_secret: ${{ secrets.azure_client_secret }}
+           subsription_id: ${{ secrets.azure_sub_id }}
         run: | 
           sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
           sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
