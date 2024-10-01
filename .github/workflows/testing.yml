@@ -19,12 +19,12 @@ jobs:
         
       - name: Terraform replace client_id
         env:
-           client_id: ${{ secrets.azure_client_id }}
+           client_id: ${{ vars.azure_client_id }}
         run: sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
            
       - name: Terraform replace tenant_id
         env:
-           tenant_id: ${{ secrets.azure_tenant_id }}
+           tenant_id: ${{ vars.azure_tenant_id }}
         run: 
              sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
            
@@ -38,7 +38,7 @@ jobs:
 
       - name: Terraform replace sub_id
         env:
-          subsription_id: ${{ secrets.azure_sub_id }}
+          subsription_id: ${{ vars.azure_sub_id }}
         run: 
              sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
       - name: Terraform show
