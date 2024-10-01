@@ -28,16 +28,4 @@ jobs:
             terraform init
             terraform plan
             terraform apply -auto-approve
-          
-      # - name: Pipelines Terraform validate
-      #   env:
-      #     layer: core
-      #   run: |
-      #     layer=${layer} make validate
-          
-      # - name: Pipelines Terraform plan
-      #   env:
-      #     layer: core
-      #   run: |
-      #     layer=${layer} make plan
-      
+
