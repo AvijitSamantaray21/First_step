@@ -10,16 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3  
+        uses: actions/checkout@v3 
+ 
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUB_ID }}
      
-      - name: Login to Azure using service principal
-        run: |
-         az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}         
-
+    
       - name: cmd
-        run: |
-            cd ./personal_testing
-            terraform init
+        # run: |
+        #     cd ./personal_testing
+        #     terraform init
 
           
           
