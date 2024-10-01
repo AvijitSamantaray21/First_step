@@ -16,27 +16,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-
-      - name: Azure login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ vars.AZURE_CLIENT_ID }}
-          tenant-id: ${{ vars.AZURE_TENANT_ID }}
-          subscription-id: ${{ vars.AZURE_SUB_ID }}
-
-      - name: Terraform replace  azure creds
+      - name: show
         env:
-           client_id: ${{ vars.azure_client_id }}
-           tenant_id: ${{ vars.azure_tenant_id }}
-           subsription_id: ${{ vars.azure_sub_id }}
-        run: | 
-          cd ./personal_testing
-          sed -i """s/"value"/"client"/g""" backend.tf
-          sed -i """s/"value"/"sub"/g""" backend.tf
-          sed -i """s/"value"/"enacnt"/g""" backend.tf
-          cat backend.tf
+          client-id: HI
+          sub_id : env.client-id
+        run :
+            echo  "$sub_id"
+          
+        
         
         
     
