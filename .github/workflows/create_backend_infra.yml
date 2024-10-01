@@ -1,5 +1,4 @@
-# Deploy Core Infra in dev
-#------------------------------------------
+
 name: Deploy backend_infra
 on:
   workflow_dispatch:
@@ -9,7 +8,7 @@ permissions:
   contents: read
   
 jobs:     
-  create-core-infra:   
+  create-backend-infra:   
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
