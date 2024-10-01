@@ -3,8 +3,8 @@
 resource "azurerm_storage_account" "example" {
   name                     = "tfmasterhi-testing"
   resource_group_name      = "hihi"
-  location                 = "centralindia
-    account_tier             = "Standard"
+  location                 = "centralindia"
+  account_tier             = "Standard"
   account_replication_type = "LRS"
   account_kind             = "StorageV2"
   is_hns_enabled           = "true"
