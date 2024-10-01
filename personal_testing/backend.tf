@@ -1,8 +1,10 @@
 terraform {
   backend "azurerm" {
-    container_name = "tfstate"
-    key = "terraform_testing.tfstate"
-    storage_account_name = "tfmasterhi"
+  resource_group_name  = "hihi"          
+  storage_account_name = "tfmasterhi"                              
+  container_name       = "tfstate"                              
+  key                  = "terraform.tfstate"               
+  use_msi              = true    
     }
     }
 
