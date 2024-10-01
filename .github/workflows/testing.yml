@@ -1,11 +1,15 @@
-name: testing_Terraform
+name: secretes_with backend.tf
 
 on:
   workflow_dispatch
+permissions:
+    id-token: write
+    contents: read
 
 jobs:
   terraform:
     runs-on: ubuntu-latest
+  
    
 
     steps:
@@ -15,17 +19,23 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUB_ID }}
+
       - name: Terraform replace  azure creds
         env:
-           client_id: ${{ secrets.azure_client_id }}
-           tenant_id: ${{ secrets.azure_tenant_id }}
-           client_secret: ${{ secrets.azure_client_secret }}
-           subsription_id: ${{ secrets.azure_sub_id }}
+           client_id: ${{ vars.azure_client_id }}
+           tenant_id: ${{ vars.azure_tenant_id }}
+           subsription_id: ${{ vars.azure_sub_id }}
         run: | 
-          sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
+         sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
           sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
-          sed -i """s/"client_secret_value"/"$client_secret"/g""" backend.tf
           sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
+          cat backend.tf
         
         
     
