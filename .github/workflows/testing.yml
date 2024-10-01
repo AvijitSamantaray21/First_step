@@ -19,7 +19,7 @@ jobs:
       - name: show
         env:
           client-id: HI
-          sub_id : env.client-id
+          sub_id : $client-id
         run :
             echo  "$sub_id"
           
