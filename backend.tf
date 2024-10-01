@@ -8,7 +8,7 @@ terraform {
     client_id            = "client_id_value" 
     subscription_id      = "subsription_id_value"  
     tenant_id            = "tenant_id_value" 
-    client_secret        ="client_secret_value"
+   
    
    
   }
