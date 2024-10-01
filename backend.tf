@@ -5,7 +5,7 @@ terraform {
     container_name       = "tfstate"                              
     key                  = "terraform.tfstate"               
     use_msi              = true                                    
-    client_id            = "client_id_val" 
+    client_id            = "client_id_value" 
     subscription_id      = "subsription_id_value"  
     tenant_id            = "tenant_id_value" 
     client_secret        ="client_secret_value"
