@@ -28,15 +28,14 @@ jobs:
           sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
         
         
-      - name: Terraform init
-        run:
-          terraform init
+    
 
-      - name: terraform apply & destroy
+      - name: terraform  init & apply & destroy
         env: 
           TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
-          terraform apply -auto-approve
-          terraform destroy -auto-approve
+           terraform init
+           terraform apply -auto-approve
+           terraform destroy -auto-approve
      
       
