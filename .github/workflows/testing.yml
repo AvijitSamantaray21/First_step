@@ -15,8 +15,6 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
-             
-        
       - name: Terraform replace  azure creds
         env:
            client_id: ${{ secrets.azure_client_id }}
@@ -28,19 +26,13 @@ jobs:
           sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
           sed -i """s/"client_secret_value"/"$client_secret"/g""" backend.tf
           sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
-           
-     
-            
-      - name: Terraform show
-        run: 
-             cat backend.tf
         
         
       - name: Terraform init
         run:
           terraform init
 
-      - name: terraform apply
+      - name: terraform apply & destroy
         env: 
           TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
