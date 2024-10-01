@@ -33,9 +33,9 @@ jobs:
            subsription_id: ${{ vars.azure_sub_id }}
         run: | 
           cd ./personal_testing
-          sed -i """s/"value"/"$client_id"/g""" backend.tf
-          sed -i """s/"value"/"$tenant_id"/g""" backend.tf
-          sed -i """s/"value"/"$subsription_id"/g""" backend.tf
+          sed -i """s/"value"/"client"/g""" backend.tf
+          sed -i """s/"value"/"sub"/g""" backend.tf
+          sed -i """s/"value"/"enacnt"/g""" backend.tf
           cat backend.tf
         
         
