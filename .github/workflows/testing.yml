@@ -15,8 +15,7 @@ permissions:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    env:
-          client-id: HI
+    
   
     steps:
       - name: Checkout code
@@ -24,7 +23,7 @@ jobs:
 
       - name: show
         env:
-          sub_id: ${{ inputs.enviroment }}
+         sub_id: ${{ inputs.environment }}
         run :
             echo  "$sub_id"
           
