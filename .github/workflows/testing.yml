@@ -1,4 +1,4 @@
-name: secretes_with backend.tf
+name:  testing
 
 on:
   workflow_dispatch
