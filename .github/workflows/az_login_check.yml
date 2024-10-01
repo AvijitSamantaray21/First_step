@@ -1,11 +1,15 @@
 name: Azure Login via azure cli
 
 on:
-  workflow_dispatch:
- 
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+  
 permissions:
   id-token: write
-  contents: read  
+  contents: read
 jobs:
   azure-login-and-resource-access:
     runs-on: ubuntu-latest
@@ -19,7 +23,7 @@ jobs:
            
         uses: azure/login@v2
         with:
-          client-id: ${{  secrets[format('azure_client_{0}', env.client_id)] }}
+          client-id: ${{  secrets[format('azure_client_{0}', ${{inputs.environment}}) ] }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
      
