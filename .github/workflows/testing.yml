@@ -23,7 +23,7 @@ jobs:
 
       - name: show
         env:
-         sub_id: ${{ inputs.environment }}
+         sub_id: format('hi_{0}',  ${{ inputs.environment }})
         run :
             echo  "$sub_id"
           
