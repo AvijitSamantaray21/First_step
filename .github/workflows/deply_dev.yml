@@ -21,7 +21,7 @@ jobs:
   
   deploy-foundation-dev:
     #needs: tests-and-checks
-    uses: ./.github/workflows/secretes with backent_TF.yml    
+    uses: ./.github/workflows/backend_TF.yml    
     with:
       environment: 'id' 
     secrets: inherit
