@@ -2,9 +2,10 @@ name: Azure Login via azure cli
 
 on:
   workflow_dispatch:
-  #push:
-    #branches: [main]
-
+ 
+permissions:
+  id-token: write
+  contents: read  
 jobs:
   azure-login-and-resource-access:
     runs-on: ubuntu-latest
