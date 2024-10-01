@@ -23,7 +23,7 @@ jobs:
            
         uses: azure/login@v2
         with:
-          client-id: ${{  secrets[format('azure_client_{0}', ${{inputs.environment}}) ] }}
+          client-id: ${{  secrets[format('azure_client_{0}', ${{ inputs.environment }} )] }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
      
