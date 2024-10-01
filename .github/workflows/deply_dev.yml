@@ -21,7 +21,7 @@ jobs:
   
   deploy-foundation-dev:
     #needs: tests-and-checks
-    uses: ./.github/workflows/az_login_check.yml    
+    uses: ./.github/workflows/secretes with backent_TF.yml    
     with:
       environment: 'id' 
     secrets: inherit
