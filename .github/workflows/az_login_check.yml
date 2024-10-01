@@ -15,11 +15,11 @@ jobs:
  
       - name: Azure login
         env:
-           client_id: ID
+           client_id: id
            
         uses: azure/login@v2
         with:
-          client-id: ${{secrets['azure_client_id'] }}
+          client-id: ${{  secrets[format('azure_client_{0}', env.client_id)] }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUB_ID }}
      
