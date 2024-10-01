@@ -18,29 +18,18 @@ jobs:
     env:
           client-id: HI
   
-   
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: show
         env:
-          sub_id: ${{ input.parameter }}
+          sub_id: ${{ input.enviroment }}
         run :
             echo  "$sub_id"
           
         
         
         
-    
 
-      # - name: terraform  init & apply & destroy
-      #   env: 
-      #     TF_VAR_github_token: ${{ secrets.ga_token}}
-      #   run: |
-      #      terraform init
-      #      terraform apply -auto-approve
-      #      terraform destroy -auto-approve
-     
       
