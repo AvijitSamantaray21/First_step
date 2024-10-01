@@ -1,7 +1,7 @@
 
 
 resource "azurerm_storage_account" "example" {
-  name                     = "storage420123"
+  name                     = "tfmasterhi"
   resource_group_name      = "hihi"
   location                 = "centralindia"
   account_tier             = "Standard"
@@ -13,7 +13,7 @@ resource "azurerm_storage_account" "example" {
 }
 
 resource "azurerm_storage_container" "example" {
-  name                  = "tfstate420"
+  name                  = "tfstate"
   storage_account_name  = azurerm_storage_account.example.name
   container_access_type = "private"
   depends_on = [azurerm_storage_account.example ]
