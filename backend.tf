@@ -4,10 +4,10 @@ terraform {
     storage_account_name = "tfmasterhi"
     container_name       = "tfstate"
     key                  = "terraform.tfstate"
-    client_id            = "" 
-    subscription_id      = ""  
-    tenant_id            = "" 
-    client_secret        =""
+    client_id            = " " 
+    subscription_id      = " "  
+    tenant_id            = " " 
+    client_secret        = " "
    
    
   }
