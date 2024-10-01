@@ -24,7 +24,7 @@ jobs:
 
       - name: show
         env:
-          sub_id: ${{ input.enviroment }}
+          sub_id: ${{ inputs.enviroment }}
         run :
             echo  "$sub_id"
           
