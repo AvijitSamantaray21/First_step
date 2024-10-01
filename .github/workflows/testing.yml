@@ -9,6 +9,8 @@ permissions:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    env:
+          client-id: HI
   
    
 
@@ -18,8 +20,7 @@ jobs:
 
       - name: show
         env:
-          client-id: HI
-          sub_id : $client-id
+          sub_id: env.client-id
         run :
             echo  "$sub_id"
           
