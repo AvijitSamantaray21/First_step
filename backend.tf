@@ -1,14 +1,14 @@
 terraform {
   backend "azurerm" {
-   resource_group_name  = "hihi"
-    storage_account_name = "tfmasterhi"
-    container_name       = "tfstate"
-    key                  = "terraform.tfstate"
-    use_msi              = true  
-    client_id            = "value" 
-    subscription_id      = "value"  
-    tenant_id            = "value" 
-    client_secret        = "value"
+    resource_group_name  = "hihi"          
+    storage_account_name = "tfmasterhi"                              
+    container_name       = "tfstate"                              
+    key                  = "terraform.tfstate"               
+    use_msi              = true                                    
+    client_id            = "client_id_val" 
+    subscription_id      = "subsription_id_value"  
+    tenant_id            = "tenant_id_value" 
+    client_secret        ="client_secret_value"
    
    
   }
