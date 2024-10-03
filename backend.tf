@@ -1,4 +1,6 @@
-data "azurerm_subscription" "current" {}
+data "azurerm_client_config" "current" {
+}
+
 
 terraform {
   backend "azurerm" {
@@ -7,9 +9,9 @@ terraform {
     container_name       = "tfstate"                              
     key                  = "terraform.tfstate"               
     use_oidc             = true                                  
-    client_id            = "client_id_value" 
-    subscription_id      = "subsription_id_value"  
-    tenant_id            = "tenant_id_value"
+    client_id            = data.azurerm_client_config.current.client_id
+    subscription_id      = data.azurerm_client_config.current.subscription_id 
+    tenant_id            = data.azurerm_client_config.current.tenant_id 
     
    
    
