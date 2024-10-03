@@ -35,7 +35,7 @@ variable "client_id"{
 }
 
 variable "subscription_id {
-v
+type =string
 }
 
 variable " tenant_id "{
