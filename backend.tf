@@ -1,3 +1,5 @@
+data "azurerm_subscription" "current" {}
+
 terraform {
   backend "azurerm" {
     resource_group_name  = "hihi"          
