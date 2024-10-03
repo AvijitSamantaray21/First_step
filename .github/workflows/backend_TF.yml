@@ -36,7 +36,7 @@ jobs:
           tenant-id: ${{ vars.AZURE_TENANT_ID }}
           subscription-id: ${{ vars.AZURE_SUB_ID }}
 
-      # - name: Terraform replace  azure creds
+      - name: Terraform replace  azure creds
         
         
         run: | 
