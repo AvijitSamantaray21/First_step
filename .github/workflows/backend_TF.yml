@@ -39,11 +39,11 @@ jobs:
       # - name: Terraform replace  azure creds
         
         
-      #   run: | 
-      #    sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
-      #     sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
-      #     sed -i """s/"subsription_id_value"/"$subsription_id"/g""" backend.tf
-      #     cat backend.tf
+        run: | 
+         sed -i """s/"client_id_value"/"$client_id"/g""" backend.tf
+          sed -i """s/"tenant_id_value"/"$tenant_id"/g""" backend.tf
+          sed -i """s/"subscription_id_value"/"$subsription_id"/g""" backend.tf
+          cat backend.tf
         
         
     
