@@ -15,10 +15,11 @@ terraform {
 
 
 provider "azurerm" {
+  
+  client_id            = var.clientid
+  subscription_id      = var.subscriptionid
+  tenant_id            = var_tenantid
   storage_use_azuread = true
-  client_id            = var.client_id
-  subscription_id      = var.subscription_id
-  tenant_id            = var_tenant_id
   features {}
 }
 provider "github" {
@@ -30,14 +31,8 @@ variable "github_token" {
   type        = string
 }
 
-variable "client_id"{
-  type        = string
-}
+variable "clientid"{}
 
-variable "subscription_id {
-type =string
-}
+variable "subscription_id {}
 
-variable " tenant_id "{
-  type        =  string
-}
+variable "tenant_id "{}
