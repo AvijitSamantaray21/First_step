@@ -50,6 +50,9 @@ jobs:
 
       - name: terraform  init & apply & destroy
         env: 
+          TF_VAR_client-id: ${{ vars.AZURE_CLIENT_ID }}
+          TF_VAR_tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          TF_VAR_subscription-id: ${{ vars.AZURE_SUB_ID }}
           TF_VAR_github_token: ${{ secrets.ga_token}}
         run: |
            terraform init
