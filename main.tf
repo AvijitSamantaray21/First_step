@@ -1,6 +1,6 @@
-data "azurerm_subscription" "current" {
+data "azurerm_client_config" "current" {
 }
 
-output "current_subscription_display_name" {
-  value = data.azurerm_subscription.current.subscription_id
+output "account_id" {
+  value = data.azurerm_client_config.current.client_id
 }
