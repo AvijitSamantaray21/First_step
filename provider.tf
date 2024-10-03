@@ -18,7 +18,7 @@ provider "azurerm" {
   
   client_id            = var.clientid
   subscription_id      = var.subscriptionid
-  tenant_id            = var_tenantid
+  tenant_id            = var.tenantid
   storage_use_azuread = true
   features {}
 }
