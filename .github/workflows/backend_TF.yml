@@ -14,10 +14,7 @@ permissions:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    env:
-      client-id: ${{ vars.AZURE_CLIENT_ID }}
-      tenant-id: ${{ vars.azure_tenant_id }}
-      subsription-id: ${{ vars.azure_sub_id }}
+   
   
    
 
@@ -36,6 +33,10 @@ jobs:
           subscription-id: ${{ vars.AZURE_SUB_ID }}
 
       - name: Terraform replace  azure creds
+        env:
+          client-id: ${{ vars.AZURE_CLIENT_ID }}
+          tenant-id: ${{ vars.azure_tenant_id }}
+          subsription-id: ${{ vars.azure_sub_id }}
         
         run: | 
          sed -i """s/"client_id_value"/"$client-id"/g""" backend.tf
