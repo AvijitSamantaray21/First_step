@@ -1,10 +1,6 @@
+data "azurerm_subscription" "current" {
+}
 
-
-resource "github_repository" "example" {
-  name        = "testing_devops_github"
-  description = "My awesome codebase"
-
-  visibility = "public"
-
- 
+output "current_subscription_display_name" {
+  value = data.azurerm_subscription.current.subscription_id
 }
