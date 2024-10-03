@@ -33,6 +33,6 @@ variable "github_token" {
 
 variable "clientid"{}
 
-variable "subscriptionid {}
+variable "subscriptionid" {}
 
-variable "tenantid "{}
+variable "tenantid"{}
